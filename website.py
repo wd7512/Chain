@@ -1,10 +1,9 @@
-from flask import (
-    Flask,
-    render_template,
-    redirect,
+
+from flask import (Flask,render_template,redirect,
     url_for,
     request
 )
+
 import pandas as pd
 ######################
 # Create the application instance
@@ -39,24 +38,25 @@ def login():
         error = 'Invalid Credentials. Please try again.'
     return render_template('login.html', error=error,title='Login')
     
-@app.route('/signup', methods=['GET', 'POST']) 
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     success = None
     if request.method == 'POST': #if button pressed
         with open('logins.csv','r') as login_data: #open login data
             df = pd.read_csv(login_data)
-        with open('logins.csv','a') as login_data: #open login data
-            user_list = list(df['Username'])
-            input_user = request.form['username']
-            input_pass = request.form['password']
-            
-            try:
-                u = user_list.index(input_user) #locate username
-                success='Username already exists, please try another'
+        
+        user_list = list(df['Username'])
+        input_user = request.form['username']
+        input_pass = request.form['password']
+        
+        try:
+            u = user_list.index(input_user) #locate username
+            success='Username already exists, please try another'
 
-            except ValueError:
+        except ValueError:
+            with open('logins.csv','a') as login_data: #open login data
                 login_data.write('\n'+input_user+','+input_pass)
-                success = 'Account created with name: ' + input_user
+            success = 'Account created with name: ' + input_user
 
 
     return render_template('signup.html',title='SignUp',success=success)
