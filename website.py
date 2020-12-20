@@ -34,7 +34,7 @@ def login():
             u = user_list.index(input_user) #locate username
             p = pass_list.index(input_pass) #locate password
             if u==p: #check is match
-                return redirect(url_for('/'))
+                return redirect(url_for('home'))
         except ValueError: #if not found
             pass
         error = 'Invalid Credentials. Please try again.'
