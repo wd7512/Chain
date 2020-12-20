@@ -1,3 +1,7 @@
+#########################################
+############# TEST CHANGE ###############
+#########################################
+
 from flask import (
     Flask,
     render_template,
@@ -5,6 +9,7 @@ from flask import (
     url_for,
     request
 )
+
 import pandas as pd
 
 # Create the application instance
@@ -39,7 +44,7 @@ def login():
         error = 'Invalid Credentials. Please try again.'
     return render_template('login.html', error=error,title='Login')
     
-@app.route('/signup', methods=['GET', 'POST']) 
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     success = None
     if request.method == 'POST': #if button pressed
