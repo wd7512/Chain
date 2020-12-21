@@ -69,6 +69,10 @@ def home():
 @app.route('/contact')  # contact page
 def contact():
     return render_template('contact.html', title='Contact')
+    
+@app.route('/auth')  # contact page
+def auth():
+    return render_template('auth.html', title='Contact')
 
 
 @app.route('/test')
