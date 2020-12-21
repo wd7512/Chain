@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<!--{% with messages = get_flashed_messages() %}-->
+<!--{% if messages %}-->
+<!--    <div class="notification is-danger">-->
+<!--        {{ messages[0] }}-->
+<!--    </div>-->
+<!--{% endif %}-->
+<!--{% endwith %}-->
 <div class="container">
   <h1>Please SignUp</h1>
   <br>
@@ -11,6 +18,8 @@
     </select>
     <input type="text" placeholder="Username" name="username" value="{{
       request.form.username }}">
+    <input type="text" placeholder="Email" name="email" value="{{
+      request.form.email }}">
     <input type="password" placeholder="Password" name="password" value="{{
       request.form.password }}">
     <input class="btn btn-default" type="submit" value="SignUp">
