@@ -21,6 +21,9 @@ def send_email(receiver_email,message):
         server.sendmail(sender_email, receiver_email, message)
 
 def setup_db(app):
+    
+    global db #make variables accessible
+    global database
 
     # ------------------SETUP---------------------------
     app.secret_key = "hello"
@@ -37,8 +40,10 @@ def setup_db(app):
         name = db.Column(db.String(100))  # 100 char max str
         email = db.Column(db.String(100), unique=True)  # values can be float, boolean etc...
         password = db.Column(db.String(100))
+        
+    
 
-    return db
+    return db,database
 
 def login_page():
     if request.method == 'POST':  # if button pressed
@@ -73,3 +78,14 @@ def signup_page():
             db.session.commit()
             return redirect(url_for('home'))
     return render_template('signup.html', title='Homepage')
+
+def forgot_pass():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user = database.query.filter_by(email=email).first()
+        if user:  # if a user is found, we want to redirect back to signup page so user can try again
+            send_email(email,'changepass')
+        else:
+            return redirect(url_for('passchange'))
+            
+    return render_template('passchange.html', title='Change Password')
