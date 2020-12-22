@@ -5,7 +5,7 @@ from models import login_page, setup_db, signup_page, forgot_pass
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
 
-db,database = setup_db(app)
+users = setup_db(app)
 
 @app.route('/login', methods=['GET', 'POST'])  # login page
 def login():
@@ -43,12 +43,12 @@ def test():
 
 @app.route("/database")
 def view():
-    return render_template("database.html", values = database.query.all()) #get all db users and pass them to the template
+    return render_template("database.html", values = users.query.all()) #get all db users and pass them to the template
 
 
 # If we're running in stand alone mode, run the application
 if __name__ == '__main__':
-    db.create_all()
+    
     app.run(debug=True)
 
 

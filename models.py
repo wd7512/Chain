@@ -23,7 +23,7 @@ def send_email(receiver_email,message):
 def setup_db(app):
     
     global db #make variables accessible
-    global database
+    global users
 
     # ------------------SETUP---------------------------
     app.secret_key = "hello"
@@ -33,7 +33,7 @@ def setup_db(app):
     app.permanent_session_lifetime = timedelta(minutes=5)
     db = SQLAlchemy(app)  # setting new db
     # --------------DATABASE CLASS-----------------------
-    class database(db.Model):  # inherit db.model attributes #represent user object in database
+    class users(db.Model):  # inherit db.model attributes #represent user object in users
         id = db.Column("id", db.Integer, primary_key=True)
         # defining each object will have an ID, it will be an integer,, and we will reference all objects to this id
         # every single row will have a different ID
@@ -41,16 +41,16 @@ def setup_db(app):
         email = db.Column(db.String(100), unique=True)  # values can be float, boolean etc...
         password = db.Column(db.String(100))
         
-    
+    db.create_all()
 
-    return db,database
+    return users
 
 def login_page():
     if request.method == 'POST':  # if button pressed
         email = request.form.get('email')
         password = request.form.get('password')
-        #print("Email: ", email,"Password: ", password)
-        user = database.query.filter_by(email=email).first()
+
+        user = users.query.filter_by(email=email).first()
         if not user or not check_password_hash(user.password, password):
             flash('Please check your login details and try again.')
             return render_template('login.html', title='Homepage')  # if the user doesn't exist or password is wrong, reload the page
@@ -66,12 +66,12 @@ def signup_page():
         name = request.form.get('username')
         password = request.form.get('password')
         #print(email,name,password) # Prints 1,1,1
-        user = database.query.filter_by(email=email).first()
+        user = users.query.filter_by(email=email).first()
         #print(user) # prints None
         if user:  # if a user is found, we want to redirect back to signup page so user can try again
             return redirect(url_for('login'))
         else:
-            new_user = database(email=email, name=name,
+            new_user = users(email=email, name=name,
                             password=generate_password_hash(password, method='sha256'))
             #print(new_user)
             db.session.add(new_user)
@@ -82,7 +82,7 @@ def signup_page():
 def forgot_pass():
     if request.method == 'POST':
         email = request.form.get('email')
-        user = database.query.filter_by(email=email).first()
+        user = users.query.filter_by(email=email).first()
         if user:  # if a user is found, we want to redirect back to signup page so user can try again
             send_email(email,'changepass')
         else:
