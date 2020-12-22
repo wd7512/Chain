@@ -5,6 +5,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import (Flask, render_template, redirect,
                    url_for, request, session, flash)
 import pandas as pd
+import sqlite3
+
+def open_table(table_name):
+    # Create your connection.
+    cnx = sqlite3.connect('database.sqlite3')
+
+    df = pd.read_sql_query('SELECT * FROM '+table_name, cnx)
+
+    return df
 
 
 def send_email(receiver_email,message):

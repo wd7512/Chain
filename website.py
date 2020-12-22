@@ -1,10 +1,10 @@
-from flask import (Flask, render_template)
+from flask import (Flask, render_template, Markup)
 
 
-from models import login_page, setup_db, signup_page, forgot_pass
+from models import login_page, setup_db, signup_page, forgot_pass, open_table
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
-
+datafram = open_table('users')
 users = setup_db(app)
 
 @app.route('/login', methods=['GET', 'POST'])  # login page
@@ -43,7 +43,7 @@ def test():
 
 @app.route("/database")
 def view():
-    return render_template("database.html", values = users.query.all()) #get all db users and pass them to the template
+    return render_template("database.html", values = Markup(datafram.to_html())) #get all db users and pass them to the template
 
 
 # If we're running in stand alone mode, run the application
