@@ -137,6 +137,9 @@ def auth_page():
         code = request.form.get('code')
         user = logins.query.filter_by(key=code).first()
         if user:
+            user.verified = 1
+            user.key = 'null'
+            db.session.commit()
             flash('Verified: '+ str(user))
         else:
             flash('Incorrect Code')
