@@ -56,13 +56,7 @@ def setup_db(app):
         verified = db.Column(db.String(100))
         key = db.Column(db.String(100),unique=True)
 
-    class promoters(db.Model):  # inherit db.model attributes #represent user object in logins
-        id = db.Column("id", db.Integer, primary_key=True)
-        # defining each object will have an ID, it will be an integer,, and we will reference all objects to this id
-        # every single row will have a different ID
-        name = db.Column(db.String(100))  # 100 char max str
-        instagram = db.Column(db.String(100), unique=True)
-        
+
     class company(db.Model):  # inherit db.model attributes #represent user object in logins
         id = db.Column("id", db.Integer, primary_key=True)
         # defining each object will have an ID, it will be an integer,, and we will reference all objects to this id
