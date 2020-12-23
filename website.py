@@ -7,7 +7,9 @@ setup_db(app)
 
 
 
-
+@app.route("/signup/setup", methods = ['GET', 'POST'])
+def signupsetup():
+    return render_template("ig_user_form.html", title = "Setup Form")
 
 
 @app.route('/login', methods=['GET', 'POST'])  # login page

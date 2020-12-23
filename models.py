@@ -68,6 +68,19 @@ def setup_db(app):
         # defining each object will have an ID, it will be an integer,, and we will reference all objects to this id
         # every single row will have a different ID
         name = db.Column(db.String(100))  # 100 char max str
+
+    class ig_users_data(db.Model):  # inherit db.model attributes #represent user object in users
+        id = db.Column("id", db.Integer, primary_key=True)
+        email = db.Column(db.String(100), unique=True)  # values can be float, boolean etc...
+        customer_type = db.Column(db.String(100))
+        instagram_name = db.Column(db.String(100))  # 100 char max str
+        target_audience = db.Column(db.String(100))
+        location = db.Column(db.String(100))
+        followers = db.Column(db.Integer)
+        product_preference = db.Column(db.String(100))
+        age = db.Column(db.Integer)
+        gender = db.Column(db.String(100))
+
         
         
     db.create_all()
