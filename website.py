@@ -1,10 +1,10 @@
-from flask import (Flask, render_template, Markup)
-from models import login_page, setup_db, signup_page, forgot_pass, open_table
+from flask import (Flask, render_template, Markup,request)
+from models import login_page, setup_db, signup_page, forgot_pass, open_table, auth_page
 from alembic import op # For Database migrations
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
-users = setup_db(app)
-datafram = open_table('users')
+setup_db(app)
+
 
 
 
@@ -31,9 +31,9 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-@app.route('/auth')  # authentication page
+@app.route('/auth', methods=['GET', 'POST'])  # authentication page
 def auth():
-    return render_template('auth.html', title='Auth')
+    return auth_page()
 
 
 @app.route('/passchange', methods=['GET', 'POST'])  # password change page
@@ -48,6 +48,7 @@ def test():
 
 @app.route("/database")
 def view():
+    datafram = open_table('logins')
     return render_template("database.html",
                            values=Markup(datafram.to_html()))  # get all db users and pass them to the template
 
