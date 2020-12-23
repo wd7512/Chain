@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<!--{% with messages = get_flashed_messages() %}-->
-<!--{% if messages %}-->
-<!--    <div class="notification is-danger">-->
-<!--        {{ messages[0] }}-->
-<!--    </div>-->
-<!--{% endif %}-->
-<!--{% endwith %}-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
 <div class="container">
   <h1>Please SignUp</h1>
   <br>
   <form action="" method="post">
     <label>Type of Account:</label>
-    <select>
+    <select name = "customer_type">
+<!--      multiple name = "customer_type"-->
       <option value="promoter">Promoter</option>
       <option value="company">Company</option>
     </select>

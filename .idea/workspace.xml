@@ -27,11 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1982f248-72e1-4167-a7d3-fc9b068d6f51" name="Default Changelist" comment="CHANGES JESUS">
-      <change afterPath="$PROJECT_DIR$/templates/database.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logins.csv" beforeDir="false" afterPath="$PROJECT_DIR$/logins.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website.py" beforeDir="false" afterPath="$PROJECT_DIR$/website.py" afterDir="false" />
     </list>
@@ -62,7 +60,28 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.website">
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chain" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="website" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,6 +106,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.website" />
+        <item itemvalue="Python.models" />
       </list>
     </recent_temporary>
   </component>
@@ -174,6 +194,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="couple of imports and class database users" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="380" y="165" key="#Notifications" timestamp="1608680577473">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="380" y="165" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1608680577473" />
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608497840194">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -186,33 +210,33 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608498116386" />
-    <state width="1259" height="54" key="GridCell.Tab.0.bottom" timestamp="1608555910772">
+    <state width="1259" height="156" key="GridCell.Tab.0.bottom" timestamp="1608685735131">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="54" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608555910772" />
-    <state width="1259" height="54" key="GridCell.Tab.0.center" timestamp="1608555910772">
+    <state width="1259" height="156" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608685735131" />
+    <state width="1259" height="156" key="GridCell.Tab.0.center" timestamp="1608685735131">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="54" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608555910772" />
-    <state width="1259" height="54" key="GridCell.Tab.0.left" timestamp="1608555910772">
+    <state width="1259" height="156" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608685735131" />
+    <state width="1259" height="156" key="GridCell.Tab.0.left" timestamp="1608685735131">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="54" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608555910772" />
-    <state width="1259" height="54" key="GridCell.Tab.0.right" timestamp="1608555910772">
+    <state width="1259" height="156" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608685735131" />
+    <state width="1259" height="156" key="GridCell.Tab.0.right" timestamp="1608685735131">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="54" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608555910772" />
-    <state x="145" y="0" key="SettingsEditor" timestamp="1608497922107">
+    <state width="1259" height="156" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608685735131" />
+    <state x="145" y="0" key="SettingsEditor" timestamp="1608682725282">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="145" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608497922107" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608682725282" />
     <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1608489857688">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608489857688" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608489663617">
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608680498696">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1608489663617" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1608680498696" />
   </component>
 </project>
