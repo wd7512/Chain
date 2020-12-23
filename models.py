@@ -75,8 +75,6 @@ def setup_db(app):
         age = db.Column(db.Integer)
         gender = db.Column(db.String(100))
 
-        
-        
     db.create_all()
 
 
