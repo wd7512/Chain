@@ -33,7 +33,7 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-@app.route('/auth', methods=['GET', 'POST'])  # authentication page
+@app.route('/signup/auth', methods=['GET', 'POST'])  # authentication page
 def auth():
     return auth_page()
 
