@@ -1,13 +1,11 @@
 import smtplib, ssl
-from datetime import timedelta  ##new import
-from flask_sqlalchemy import SQLAlchemy  ##new import
-from sqlalchemy import Column, String,Integer, Unicode, engine
+from datetime import timedelta
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, String, Integer, Unicode, engine
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import (Flask, render_template, redirect,
-                   url_for, request, session, flash)
+from flask import (Flask, render_template, redirect, url_for, request, session, flash)
 import pandas as pd
 import sqlite3
-from alembic import op # For Database migrations
 import random
 
 
@@ -29,9 +27,9 @@ def send_email(receiver_email, message):
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
-        
-    #print('email sent to:'+receiver_email)
-    #print('message:'+message)
+
+    # print('email sent to:'+receiver_email)
+    # print('message:'+message)
 
 
 def setup_db(app):
@@ -54,8 +52,7 @@ def setup_db(app):
         password = db.Column(db.String(100))
         customer_type = db.Column(db.String(100))
         verified = db.Column(db.String(100))
-        key = db.Column(db.String(100),unique=True)
-
+        key = db.Column(db.String(100), unique=True)
 
     class company(db.Model):  # inherit db.model attributes #represent user object in logins
         id = db.Column("id", db.Integer, primary_key=True)
@@ -76,7 +73,6 @@ def setup_db(app):
         gender = db.Column(db.String(100))
 
     db.create_all()
-
 
 
 def login_page():
@@ -107,22 +103,21 @@ def signup_page():
         if user:  # if a user is found, we want to redirect back to signup page so user can try again
             return redirect(url_for('login'))
         else:
-            key = random.randint(100000,999999)
-            while logins.query.filter_by(key=key).first(): # if code already used
-                key = random.randint(100000,999999)
+            key = random.randint(100000, 999999)
+            while logins.query.filter_by(key=key).first():  # if code already used
+                key = random.randint(100000, 999999)
 
-            send_email(email,'To authenticate account please type in this code '+str(key))
+            send_email(email, 'To authenticate account please type in this code ' + str(key))
             new_user = logins(email=email, name=name,
-                             password=generate_password_hash(password, method='sha256'),
-                             customer_type=input_customer_type,verified=0,key=key)
+                              password=generate_password_hash(password, method='sha256'),
+                              customer_type=input_customer_type, verified=0, key=key)
             # print(new_user)
             flash("New customer: ", f"{email, name, password, input_customer_type}")
             db.session.add(new_user)
             db.session.commit()
-            
-            
+
             return redirect(url_for('auth'))
-            
+
     return render_template('signup.html', title='Homepage')
 
 
@@ -136,17 +131,22 @@ def forgot_pass():
             return redirect(url_for('passchange'))
 
     return render_template('passchange.html', title='Change Password')
-    
+
+
 def auth_page():
     if request.method == 'POST':
         code = request.form.get('code')
         user = logins.query.filter_by(key=code).first()
+        mail = logins.query.filter_by(key=code).first().mail
+        #mail = logins.query.filter_by(email='joaomj1800@gmail.com').first().email #just for testing
+        #return redirect(url_for('signupsetup'))
         if user:
             user.verified = 1
             user.key = 'null'
             db.session.commit()
-            flash('Verified: '+ str(user))
+            flash('Verified: ' + str(user))
+            return redirect(url_for('signupsetup',email = mail))
         else:
             flash('Incorrect Code')
-        
+
     return render_template('auth.html', title='Auth')
