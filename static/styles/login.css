@@ -1,6 +1,7 @@
 .container {
-  background-image: url(https://ktar.com/wp-content/uploads/2017/06/Sanderson-5-Scenic-Drives-min-620x370.png);
-  background-size:     cover;                      /* <------ */
+  /*background-image: url(https://ktar.com/wp-content/uploads/2017/06/Sanderson-5-Scenic-Drives-min-620x370.png);*/
+  background-color: #FFDC00;
+  background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center;
   min-height: 100%;
@@ -56,6 +57,13 @@ text-align: center
   font-size: 14px;
 }
 
+.login_form p{
+text-align: center;
+color: black;
+font-family: "Roboto", sans-serif;
+font-size: 14px;
+
+}
 
 
 .login_form button {
