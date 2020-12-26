@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container" style="static/styles/login.css">
+
+
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/login.css') }}">
+    <div class = "form_box">
+  <form class ="login_form" action="" method="post">
+      {% for message in get_flashed_messages() %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    <input type="text" placeholder="Email" name="email" value="{{
+      request.form.email }}">
+     <input type="password" placeholder="Password" name="password" value="{{
+      request.form.password }}">
+    <input class="btn btn-default" type="submit" value="Login">
+      <a class = "forgot_pass" href="passchange">forgot password?</a>
+  </form>
+        </div>
+
+</div>
+{% endblock %}
