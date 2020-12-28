@@ -1,4 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-Contact Page
+
+<body style="background: linear-gradient(to bottom, #ffffff 0%, #3366ff 100%);">
+
+<h1> <b> Contact Us </b> </h1>
+<br /> Email - chain.app.ai@gmail.com
+<br /> Phone - 9427917947917
+<p style="color:red;">Instagram - @chain.ai</p>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+  
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value=""><br>
+  
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" value=""><br>
+  
+  <label for="issue">Issue:</label><br>
+  <input type="text" id="issue" name="issue" value=""><br><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
 {% endblock %}
