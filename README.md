@@ -1,2 +1,2 @@
 # Chain
-Our little website by 3 continental lads
+Our little website by continental lads
