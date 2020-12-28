@@ -38,11 +38,12 @@ def login_view(request):
             # user is valid and active -> is_active
             # request.user == user
             login(request, user)
-            return redirect("/")
+            return redirect("user_dashboard/")
         else:
             # attempt = request.session.get("attempt") or 0
             # request.session['attempt'] = attempt + 1
             # return redirect("/invalid-password")
+            messages.error(request, "invalid email of password")
             request.session['invalid_user'] = 1  # 1 == True
     return render(request, "forms.html", {"form": form})
 
@@ -51,3 +52,9 @@ def logout_view(request):
     logout(request)
     # request.user == Anon User
     return redirect("/login")
+
+def user_dashboard(request):
+    return render(request, "dashboards/user_dashboard.html")
+
+def company_dashboard(request):
+    return render(request, "dashboards/company_dashboard.html")
