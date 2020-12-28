@@ -13,6 +13,7 @@ def register_view(request):
     if form.is_valid():
         username = form.cleaned_data.get("username")
         email = form.cleaned_data.get("email")
+        type_client = form.cleaned_data.get("type_client")
         password = form.cleaned_data.get("password1")
         password2 = form.cleaned_data.get("password2")
         try:
@@ -23,7 +24,7 @@ def register_view(request):
             login(request, user)
             return redirect("/")
         else:
-            messages.error(request,"invalid email of password")
+            messages.error(request,"Invalid email or password")
             request.session['register_error'] = 1
     return render(request, "forms.html", {"form": form})
 
