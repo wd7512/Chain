@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .form_container {
+  align:left;
+  padding-left:50pc;
+  padding-top: 20px;
+  padding-right:20px;
+  min-height: 100%;
+  height: 600px;
+  width: 100%,
+}
+  .main_container {
+  background-image: linear-gradient(to right,#92a8d1, white);
+
+  }
+  .wrapper{
+  padding-left: 20px;
+  padding-top:20px;
+  float:left;
+  width:500px;
+
+  }
+
+</style>
+<div class = "main_container">
+  <div class = "wrapper">
+  <h1>Join us on Chain!</h1>
+  <p>We are committed to getting companies and promoters together,
+  to make businesses thrive and develop. Promoters help companies advertise
+  services, ideas and products, using their social media footprint</p>
+</div>
+<div class = "form_container">
+  <div class="form-group">
+    <form method="POST" class="form-group">
+      {%csrf_token%}
+      {%if messages%}
+        {%for message in messages%}
+          {{message}}
+        {%endfor%}
+      {%endif%}
+      {{form}}
+      <button type="submit" class="btn btn-success">SignUp</button>
+        <a href="/register">Don't Have an account? Register Here</a>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

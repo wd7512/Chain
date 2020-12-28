@@ -1,25 +1,53 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
+
+User = get_user_model()
 
 
-def signup(response):
-    if response.method == 'POST':
-        form = RegisterForm(response.POST)
-        print(form['email'].value())
-        print(form['username'].value())
-        print(form['password1'].value())
-        print(form['password2'].value())
-        if form.is_valid():
-            form.save()
-        return redirect("/")
-    else:
-        form = RegisterForm()
+def register_view(request):
+    form = RegisterForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        email = form.cleaned_data.get("email")
+        password = form.cleaned_data.get("password1")
+        password2 = form.cleaned_data.get("password2")
+        try:
+            user = User.objects.create_user(username, email, password)
+        except:
+            user = None
+        if user != None:
+            login(request, user)
+            return redirect("/")
+        else:
+            messages.error(request,"invalid email of password")
+            request.session['register_error'] = 1
+    return render(request, "forms.html", {"form": form})
 
-    return render(response, 'signup.html', {'form': form})
 
-# def login(response):
-#     return render(response, 'login.html')
+def login_view(request):
+    form = LoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user != None:
+            # user is valid and active -> is_active
+            # request.user == user
+            login(request, user)
+            return redirect("/")
+        else:
+            # attempt = request.session.get("attempt") or 0
+            # request.session['attempt'] = attempt + 1
+            # return redirect("/invalid-password")
+            request.session['invalid_user'] = 1  # 1 == True
+    return render(request, "forms.html", {"form": form})
 
+
+def logout_view(request):
+    logout(request)
+    # request.user == Anon User
+    return redirect("/login")
