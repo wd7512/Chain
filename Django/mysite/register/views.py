@@ -13,6 +13,7 @@ def register_view(request):
     if form.is_valid():
         username = form.cleaned_data.get("username")
         email = form.cleaned_data.get("email")
+        type_client = form.cleaned_data.get("type_client")
         password = form.cleaned_data.get("password1")
         password2 = form.cleaned_data.get("password2")
         try:
@@ -23,7 +24,7 @@ def register_view(request):
             login(request, user)
             return redirect("/")
         else:
-            messages.error(request,"invalid email of password")
+            messages.error(request,"Invalid email or password")
             request.session['register_error'] = 1
     return render(request, "forms.html", {"form": form})
 
@@ -38,11 +39,12 @@ def login_view(request):
             # user is valid and active -> is_active
             # request.user == user
             login(request, user)
-            return redirect("/")
+            return redirect("user_dashboard/")
         else:
             # attempt = request.session.get("attempt") or 0
             # request.session['attempt'] = attempt + 1
             # return redirect("/invalid-password")
+            messages.error(request, "invalid email of password")
             request.session['invalid_user'] = 1  # 1 == True
     return render(request, "forms.html", {"form": form})
 
@@ -51,3 +53,9 @@ def logout_view(request):
     logout(request)
     # request.user == Anon User
     return redirect("/login")
+
+def user_dashboard(request):
+    return render(request, "dashboards/user_dashboard.html")
+
+def company_dashboard(request):
+    return render(request, "dashboards/company_dashboard.html")

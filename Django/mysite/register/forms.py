@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 User = get_user_model()
 
+options = [('Promoter','Promoter'), ('Company','Company')]
 
 class RegisterForm(forms.Form):
     username = forms.CharField(
@@ -17,6 +18,15 @@ class RegisterForm(forms.Form):
             attrs={
                 "class": "form-control"
             }))
+
+    type_client = forms.CharField(
+        label='Type of Account',
+        widget=forms.Select(
+            attrs={
+                "class": "form-control",
+                "id": "user-password"
+            }, choices=options))
+
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput(
@@ -31,7 +41,6 @@ class RegisterForm(forms.Form):
                 "class": "form-control",
                 "id": "user-confirm-password"
             }))
-
 
 # class RegisterForm(UserCreationForm):
 #
