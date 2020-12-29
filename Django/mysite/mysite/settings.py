@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'register.apps.RegisterConfig',
-    'promoters',
+    'promoters.apps.PromotersConfig',
     'companies',
 ]
 
