@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class = "form_container">
+  <div class="form-group">
+    <form method="POST" class="form-group">
+      {%csrf_token%}
+      {%if messages%}
+        {%for message in messages%}
+          {{message}}
+        {%endfor%}
+      {%endif%}
+      {{form}}
+      <button type="submit" class="btn btn-success">Add Details</button>
+      
+    </form>
+  </div>
+</div>
+{% endblock %}

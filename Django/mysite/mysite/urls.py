@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
     path('',include('register.urls')),
+    path('promoters/',include('promoters.urls')),
 ]
