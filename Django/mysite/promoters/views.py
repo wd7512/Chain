@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import init_form
 from .models import user_form
 from django.contrib import messages
@@ -13,12 +13,20 @@ def signupform(request):
     sex = form.cleaned_data.get("sex")
     birthday = form.cleaned_data.get("birthday")
     submission_date = timezone.now()
+    followers = form.cleaned_data.get("followers")
 
     dataline = user_form(username=username,
                 instagram_id = insta_id,
                 submission_date = submission_date,
                 sex = sex,
-                birthday = birthday)
+                birthday = birthday,
+                followers = followers)
     dataline.save()
+    return redirect('/promoters/dashboard/')
+    
+    
     
   return render(request, "promoters/plain_form.html", {"form": form})
+
+def dashboard(request):
+  return render(request,"promoters/dashboard.html")

@@ -39,7 +39,7 @@ def login_view(request):
             # user is valid and active -> is_active
             # request.user == user
             login(request, user)
-            return redirect("user_dashboard/")
+            return redirect("promoters/dashboard/")
         else:
             # attempt = request.session.get("attempt") or 0
             # request.session['attempt'] = attempt + 1

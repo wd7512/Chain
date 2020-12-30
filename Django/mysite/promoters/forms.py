@@ -9,3 +9,4 @@ class init_form(forms.Form):
   ig_name = forms.CharField()
   birthday = forms.DateField(widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES))
   sex = forms.MultipleChoiceField(choices = SEX_CHOICES)
+  followers = forms.IntegerField()
