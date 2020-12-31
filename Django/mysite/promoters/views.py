@@ -26,7 +26,7 @@ def signupform(request):
     
     
     
-  return render(request, "promoters/plain_form.html", {"form": form})
+  return render(request, "plain_form.html", {"form": form})
 
 def dashboard(request):
   return render(request,"promoters/dashboard.html")
