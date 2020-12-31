@@ -121,7 +121,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# the url for static files for a specific app
 STATIC_URL = '/static/'
+# the url for generic static files not associated with an app
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+# python manage.py collectstatic
+# make sure static files are namespaced properly
+# STATIC_ROOT = ""
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 

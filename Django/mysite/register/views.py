@@ -44,7 +44,7 @@ def login_view(request):
             # attempt = request.session.get("attempt") or 0
             # request.session['attempt'] = attempt + 1
             # return redirect("/invalid-password")
-            messages.error(request, "invalid email of password")
+            messages.error(request, "invalid email or password")
             request.session['invalid_user'] = 1  # 1 == True
     return render(request, "register/forms.html", {"form": form})
 
