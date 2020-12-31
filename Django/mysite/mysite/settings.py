@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'main',
     'register.apps.RegisterConfig',
     'promoters.apps.PromotersConfig',
-    'companies',
+    'companies.apps.CompaniesConfig',
 ]
 
 MIDDLEWARE = [
