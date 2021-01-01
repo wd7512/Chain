@@ -23,10 +23,12 @@ def signupform(request):
                 followers = followers)
     dataline.save()
     return redirect('/promoters/dashboard/')
-    
-    
+
     
   return render(request, "plain_form.html", {"form": form})
 
 def dashboard(request):
   return render(request,"promoters/dashboard.html")
+
+def test(request):
+    return render(request,"dashboard.html")
