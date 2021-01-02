@@ -1,65 +1,52 @@
 from django import forms
-from django.contrib.auth import login, authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
-User = get_user_model()
-
-options = [('Promoter','Promoter'), ('Company','Company')]
-
-class RegisterForm(forms.Form):
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }))
-    email = forms.EmailField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }))
-
-    type_client = forms.CharField(
-        label='Type of Account',
-        widget=forms.Select(
-            attrs={
-                "class": "form-control",
-                "id": "user-password"
-            }, choices=options))
-
-    password1 = forms.CharField(
-        label='Password',
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control",
-                "id": "user-password"
-            }))
-    password2 = forms.CharField(
-        label='Confirm Password',
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control",
-                "id": "user-confirm-password"
-            }))
-
-# class RegisterForm(UserCreationForm):
-#
-#     email = forms.EmailField()
-#     class Meta:  # define the fact this register form is saving into the users database
-#         model = User
-#         fields = ["username", "email", "password1", "password2"]
+from .models import Account
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={
-            "class": "form-control"
-        }))
-    password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control",
-                "id": "user-password"
-            }
-        )
-    )
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Add a valid email address.')
+
+    class Meta:
+        model = Account
+        fields = ('email', 'username', 'password1', 'password2', )
+
+
+class AccountAuthenticationForm(forms.ModelForm):
+
+	password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+	class Meta:
+		model = Account
+		fields = ('email', 'password')
+
+	def clean(self):
+		if self.is_valid():
+			email = self.cleaned_data['email']
+			password = self.cleaned_data['password']
+			if not authenticate(email=email, password=password):
+				raise forms.ValidationError("Invalid login")
+
+
+class AccountUpdateForm(forms.ModelForm):
+
+	class Meta:
+		model = Account
+		fields = ('email', 'username', )
+
+	def clean_email(self):
+		email = self.cleaned_data['email']
+		try:
+			account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
+		except Account.DoesNotExist:
+			return email
+		raise forms.ValidationError('Email "%s" is already in use.' % account)
+
+	def clean_username(self):
+		username = self.cleaned_data['username']
+		try:
+			account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
+		except Account.DoesNotExist:
+			return username
+		raise forms.ValidationError('Username "%s" is already in use.' % username)
