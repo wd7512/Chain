@@ -3,6 +3,13 @@ from . import views
 
 urlpatterns = [
     path('register/', views.register_view, name='register'),
+]
+
+
+
+'''
+urlpatterns = [
+    path('register/', views.register_view, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('', views.login_view, name='home'),
@@ -12,3 +19,5 @@ urlpatterns = [
     # path('', include("django.contrib.auth.urls")), #built in login
     # path('signup/', views.signup, name='signup'),
 ]
+
+'''
