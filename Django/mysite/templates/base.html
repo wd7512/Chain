@@ -2,17 +2,16 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica";
 }
 
 .topnav {
   overflow: hidden;
-  background-color: #000000;
-  display:block;
+  background-image: linear-gradient(to left,#009933, white);
 }
 
 .topnav a {
-  float: left;
+  float: right;
   color: #f2f2f2;
   text-align: center;
   padding: 10px 12px;
@@ -24,6 +23,29 @@ body {
   background-color: #8c8c8c;
   color: black;
   }
+  
+
+.contactFooter {
+  font-family: 'Helvetica';
+  background-image: linear-gradient(to left,#009933, white);
+  color: black;
+  border-color: black;
+  border-style: double;
+  border-width: 5px;
+}
+
+.Email {
+  border-color: black;
+  border-style: ;
+  border-width: 5px;
+}
+  
+.IG {
+  border-color: red;
+  border-style: ;
+  border-width: 1px;
+}
+  
 </style>
 
 <html>
@@ -45,15 +67,21 @@ body {
 <title>Chain</title>
 {% endif %}
 
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- Image contact page-->
+
 </head>
 <body>
 
 <div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="https://www.instagram.com/">Instagram</a>
-  <a href="/contact">Contact</a>
-  <a href="/register">SignUp</a>
+  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">
+  <a href="/Explore">Explore</a>
   <a href="/login">Login</a>
+  <a href="/register">SignUp</a>
+  <a href="https://www.instagram.com/">Instagram</a>
+  <a href="/MyProfile">My Profile</a>
+  <a class="active" href="/">Home</a>
+
 </div>
 {% block content %}
 
@@ -63,4 +91,21 @@ body {
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
 <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
 </body>
+
+<footer>
+<div class="contactFooter">
+  <center>
+    <i class="fas fa-phone"></i>
+    <p><h1 style="font-size:50px;">Contact Us</h1></p>
+    <div class="Email"> 
+      <p><b>Email: chain.app.ai@gmail.com</p>
+    </div>
+      
+    <div class="IG"> 
+      <p>Instagram: @chain.ai</b></p>
+    </div>
+  </center>
+</div>
+</footer>
+
 </html>
