@@ -7,6 +7,9 @@ SEX_CHOICES = [('M','Male'),('F','Female'),('O','Other')]
 class init_form(forms.Form):
   username = forms.CharField()
   ig_name = forms.CharField()
-  birthday = forms.DateField(widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES))
+  birthday = forms.DateField(widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES,attrs={
+              "class": "test"
+          })
+  )
   sex = forms.MultipleChoiceField(choices = SEX_CHOICES)
   followers = forms.IntegerField()

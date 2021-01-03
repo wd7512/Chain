@@ -24,7 +24,6 @@ def signupform(request):
     dataline.save()
     return redirect('/promoters/dashboard/')
 
-    
   return render(request, "plain_form.html", {"form": form})
 
 def dashboard(request):
