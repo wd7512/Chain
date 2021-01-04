@@ -29,5 +29,8 @@ def signupform(request):
 def dashboard(request):
   return render(request,"promoters/dashboard.html")
 
+def navbar(request):
+  return render(request,"navbar.html")
+
 def test(request):
     return render(request,"dashboard.html")

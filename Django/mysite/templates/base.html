@@ -60,19 +60,11 @@ body {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- CHANGES HERE!!!!!!!!!!!!!!!!!!!!!!!!-->
-  {% if title %}
-<title>{{ title }} - Chain</title>
-{% else %}
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <title>Chain</title>
-{% endif %}
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<!-- Image contact page-->
-
 </head>
 <body>
-
 <div class="topnav">
   <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">
   <a href="/Explore">Explore</a>
@@ -81,28 +73,46 @@ body {
   <a href="https://www.instagram.com/">Instagram</a>
   <a href="/MyProfile">My Profile</a>
   <a class="active" href="/">Home</a>
+</div>
+
+<style>
+  .heading1{
+  background-image: linear-gradient(87deg, rgb(94, 114, 228) 0px, rgb(130, 94, 228) 100%) !important;
+  height:400px;}
+   .heading2{
+  background-image: linear-gradient(43deg, rgb(233, 73, 73) 0px, rgb(233, 158, 173) 100%) !important;
+  height:400px;}
+  .size50{
+  font-size:50px}
+  .helvetica{
+  font-family:helvetica;}
+</style>
+<div class="heading1">
+  <p class="text-left font-weight-bold size50 helvetica">This is the Main Page - DIV1</p>
 
 </div>
+<div class="heading2">
+  <p class="text-left font-weight-bold size50 helvetica">This is the Main Page - DIV2</p>
+</div>
+
+
 {% block content %}
 
 {% endblock %}
 
-<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
-</body>
 
+</body>
 <footer>
 <div class="contactFooter">
   <center>
     <i class="fas fa-phone"></i>
     <p><h1 style="font-size:50px;">Contact Us</h1></p>
     <div class="Email"> 
-      <p><b>Email: chain.app.ai@gmail.com</p>
+      <p>Email: chain.app.ai@gmail.com</p>
     </div>
       
     <div class="IG"> 
-      <p>Instagram: @chain.ai</b></p>
+      <p>Instagram: @chain.ai</p>
     </div>
   </center>
 </div>
