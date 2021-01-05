@@ -28,10 +28,22 @@ body {
 .contactFooter {
   font-family: 'Helvetica';
   color: black;
+}
+  
+.quoteImage {
+  position: relative;
+  text-align: center;
+  color: white;
 
 }
 
-  
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 </style>
 
 <html>
@@ -77,7 +89,7 @@ body {
           <a class="nav-link active" href="/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/register">Signup</a>
+          <a class="nav-link active" href="/register">Sign Up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/promoters/testpage">My Profile</a>
@@ -91,27 +103,46 @@ body {
   </div>
 </nav>
 </div>
-
-
 {% block content %}
-
 {% endblock %}
 
 
 </body>
 <footer>
 <div class="contactFooter">
+  
+  <div class="quoteImage">
+    <img src="https://picmamba.com/wp-content/uploads/2018/07/Wheat-Sunset-Pano.jpg" alt="alternatetext" style="width:2000px;height:638px;">
+    <div class="centered mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white-100 sm:text-4xl">"People grow through experience if they meet life honestly and courageously. This is how character is built." - Eleanor Roosevelt</div>
+  </div>
+  
+  
+  
   <center>
+    <p>
+      &nbsp;
+    </p>
+    <p>
+      &nbsp;
+    </p>
       <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Contact Us</h2>   
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-        Feel free to provide feedback on our services or tell how how we can improve
+        Feel free to provide feedback on our services or tell us how we can improve
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Email: chain.app.ai@gmail.com
+        Email - chain.app.ai@gmail.com
       </p>
-      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Instagram: @chain.ai
+      <p class="mt-4 max-w-2xl text-xl font-semibold text-green-600 lg:mx-auto">
+        Instagram - @chain.ai
       </p>
+      
+    <p>
+      &nbsp;
+    </p>
+    <p>
+      &nbsp;
+    </p>
+    
   </center>
 </div>
 </footer>
