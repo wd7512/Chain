@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = Account
-        fields = ('email', 'username', 'password1', 'password2', )
+        fields = ('email', 'username','type_client', 'password1', 'password2', )
 
 
 class AccountAuthenticationForm(forms.ModelForm):
@@ -50,3 +50,19 @@ class AccountUpdateForm(forms.ModelForm):
 		except Account.DoesNotExist:
 			return username
 		raise forms.ValidationError('Username "%s" is already in use.' % username)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

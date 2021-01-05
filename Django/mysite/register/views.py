@@ -5,24 +5,24 @@ from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateFor
 
 
 
-def register_view(request):
+def registration_view(request):
 	context = {}
-	form = RegistrationForm(request.POST)
 	if request.POST:
-		
+		form = RegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
 			email = form.cleaned_data.get('email')
 			raw_password = form.cleaned_data.get('password1')
 			account = authenticate(email=email, password=raw_password)
 			login(request, account)
-			form = 'account created'
+			return redirect('home')
 		else:
-			form = 'bad login'
+			context['registration_form'] = form
 
 	else:
+		form = RegistrationForm()
 		context['registration_form'] = form
-	return render(request, 'register/forms.html', {'form': form})
+	return render(request, 'account/register.html', context)
 
 
 def logout_view(request):
@@ -55,79 +55,42 @@ def login_view(request):
 	context['login_form'] = form
 
 	# print(form)
-	return render(request, 'register/forms.html', context)
+	return render(request, "account/login.html", context)
 
 
+def account_view(request):
+
+	if not request.user.is_authenticated:
+			return redirect("login")
+
+	context = {}
+	if request.POST:
+		form = AccountUpdateForm(request.POST, instance=request.user)
+		if form.is_valid():
+			form.initial = {
+					"email": request.POST['email'],
+					"username": request.POST['username'],
+			}
+			form.save()
+			context['success_message'] = "Updated"
+	else:
+		form = AccountUpdateForm(
+
+			initial={
+					"email": request.user.email, 
+					"username": request.user.username,
+				}
+			)
+
+	context['account_form'] = form
+
+	#blog_posts = BlogPost.objects.filter(author=request.user)
+	#context['blog_posts'] = blog_posts
+
+	return render(request, "account/account.html", context)
 
 
+def must_authenticate_view(request):
+	return render(request, 'account/must_authenticate.html', {})
 
 
-
-
-
-
-
-
-'''
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.contrib.auth import login, authenticate, logout, get_user_model
-from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
-from .forms import RegisterForm, LoginForm
-
-User = get_user_model()
-
-
-def register_view(request):
-    form = RegisterForm(request.POST or None)
-    if form.is_valid():
-        username = form.cleaned_data.get("username")
-        email = form.cleaned_data.get("email")
-        type_client = form.cleaned_data.get("type_client")
-        password = form.cleaned_data.get("password1")
-        password2 = form.cleaned_data.get("password2")
-        try:
-            user = User.objects.create_user(username, email, password)
-        except:
-            user = None
-        if user != None:
-            login(request, user)
-            return redirect("/")
-        else:
-            messages.error(request,"Invalid email or password")
-            request.session['register_error'] = 1
-    return render(request, "forms.html", {"form": form})
-
-
-def login_view(request):
-    form = LoginForm(request.POST or None)
-    if form.is_valid():
-        username = form.cleaned_data.get("username")
-        password = form.cleaned_data.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user != None:
-            # user is valid and active -> is_active
-            # request.user == user
-            login(request, user)
-            return redirect("promoters/dashboard/")
-        else:
-            # attempt = request.session.get("attempt") or 0
-            # request.session['attempt'] = attempt + 1
-            # return redirect("/invalid-password")
-            messages.error(request, "invalid email of password")
-            request.session['invalid_user'] = 1  # 1 == True
-    return render(request, "forms.html", {"form": form})
-
-
-def logout_view(request):
-    logout(request)
-    # request.user == Anon User
-    return redirect("/login")
-
-def user_dashboard(request):
-    return render(request, "dashboards/user_dashboard.html")
-
-def company_dashboard(request):
-    return render(request, "dashboards/company_dashboard.html")
-'''
