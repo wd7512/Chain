@@ -58,6 +58,7 @@ body {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -65,34 +66,44 @@ body {
 <title>Chain</title>
 </head>
 <body>
-<div class="topnav">
-  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">
-  <a href="/Explore">Explore</a>
-  <a href="/login">Login</a>
-  <a href="/register">SignUp</a>
-  <a href="https://www.instagram.com/">Instagram</a>
-  <a href="/MyProfile">My Profile</a>
-  <a class="active" href="/">Home</a>
-</div>
-
-<style>
-  .heading1{
-  background-image: linear-gradient(87deg, rgb(94, 114, 228) 0px, rgb(130, 94, 228) 100%) !important;
-  height:400px;}
-   .heading2{
-  background-image: linear-gradient(43deg, rgb(233, 73, 73) 0px, rgb(233, 158, 173) 100%) !important;
-  height:400px;}
-  .size50{
-  font-size:50px}
-  .helvetica{
-  font-family:helvetica;}
-</style>
-<div class="heading1">
-  <p class="text-left font-weight-bold size50 helvetica">This is the Main Page - DIV1</p>
-
-</div>
-<div class="heading2">
-  <p class="text-left font-weight-bold size50 helvetica">This is the Main Page - DIV2</p>
+<!--<div class="topnav">-->
+<!--  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">-->
+<!--  <a href="/Explore">Explore</a>-->
+<!--  <a href="/login">Login</a>-->
+<!--  <a href="/register">SignUp</a>-->
+<!--  <a href="https://www.instagram.com/">Instagram</a>-->
+<!--  <a href="/MyProfile">My Profile</a>-->
+<!--  <a class="active" href="/">Home</a>-->
+<!--</div>-->
+<div class="sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light p-2 bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse pt-2 pb-2" style="font-size:16px" id="navbarTogglerDemo01">
+      <a class="navbar-brand " href="/">Chain</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=href="https://www.instagram.com/">Instagram</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/register">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/promoters/testpage">My Profile</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 </div>
 
 
