@@ -34,3 +34,6 @@ def navbar(request):
 
 def test(request):
     return render(request,"dashboard.html")
+
+def diogo(request):
+    return render(request,"diogo.html")
