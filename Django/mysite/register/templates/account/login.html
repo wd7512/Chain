@@ -41,11 +41,11 @@
   <div class="d-flex flex-column pb-3">
     <img class="img-fluid mx-auto d-block" src="{% static 'codingwithmitch_logo.png' %}" alt="Codignwithmitch logo image" width="72" height="72">
   </div>
-  
+
   <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 
   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  
+
   <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
   {% for field in login_form %}
@@ -59,7 +59,7 @@
     <div style="color: red">
       <p>{{login_form.non_field_errors}}</p>
     </div>
-      
+
   {% endif %}
 
   <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
@@ -67,11 +67,9 @@
 </form>
 
 <div class="d-flex flex-column">
-  <a class="m-auto" href="{% url 'password_reset' %}">Reset password</a>
+  <a class="m-auto" href="/">Reset password</a>
 </div>
 
 
 
 {% endblock content %}
-
-
