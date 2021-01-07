@@ -71,11 +71,14 @@
   <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm password" required>
     <p>
       &nbsp;
-    </p> 
-  <input type="text" name="type_client" select id="inputType" class="form-control" placeholder="Type of Account" required>
-  
-
-
+    </p>
+  <div class="form-control">
+    <label name="type_client" class="text-muted">Type of Account</label>
+    <select class="form-control" id="inputType" required>
+      <option>Promoter</option>
+      <option>Company</option>
+    </select>
+  </div>
 
   {% for field in registration_form %}
       <p>
