@@ -7,11 +7,9 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-image: linear-gradient(to left,#009933, white);
 }
 
-.topnav a {
-  float: right;
+.sticky-top a {
   color: #f2f2f2;
   text-align: center;
   padding: 10px 12px;
@@ -19,9 +17,13 @@ body {
   font-size: 17px;
 }
 
-.topnav a:hover {
-  background-color: #8c8c8c;
+.sticky-top a:hover {
+  background-color: #d9d9d9;
   color: black;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   }
   
 
@@ -64,6 +66,7 @@ body {
 <title>Chain</title>
 </head>
 <body>
+  
 <!--<div class="topnav">-->
 <!--  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">-->
 <!--  <a href="/Explore">Explore</a>-->
@@ -73,6 +76,7 @@ body {
 <!--  <a href="/MyProfile">My Profile</a>-->
 <!--  <a class="active" href="/">Home</a>-->
 <!--</div>-->
+
 <div class="sticky-top">
 <nav class="navbar navbar-expand-lg navbar-light p-2 bg-light">
   <div class="container-fluid">
