@@ -72,13 +72,13 @@
     <p>
       &nbsp;
     </p>
-  <div class="form-control">
-    <label name="type_client" class="text-muted">Type of Account</label>
-    <select class="form-control" id="inputType" required>
-      <option>Promoter</option>
-      <option>Company</option>
+  
+    <label class="text-muted">Type of Account</label>
+    <select name="type_client" class="form-control" id="inputType" required>
+      <option value="P">Promoter</option>
+      <option value="C">Company</option>
     </select>
-  </div>
+  
   
   {% for field in registration_form %}
       <p>

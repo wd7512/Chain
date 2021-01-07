@@ -8,7 +8,7 @@ from .models import Account
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Add a valid email address.')
     type_client = forms.ChoiceField(choices = [('P','Promoter'), ('C','Company')])
-
+                                    
     class Meta:
         model = Account
         fields = ('email', 'username', 'password1', 'password2', 'type_client')

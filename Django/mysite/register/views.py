@@ -14,11 +14,15 @@ def registration_view(request):
 			email = form.cleaned_data.get('email')
 			raw_password = form.cleaned_data.get('password1')
 			type_client = form.cleaned_data.get('type_client')
+			
+			print(type_client)
 			account = authenticate(email=email, password=raw_password)
 			login(request, account)
 			return redirect('home')
 		else:
-			context['registration_form'] = form
+                        print('invalid')
+                        print(form.cleaned_data.get('type_client'))
+                        context['registration_form'] = form
 
 	else:
 		form = RegistrationForm()
