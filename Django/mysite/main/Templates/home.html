@@ -210,6 +210,189 @@
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
         A collection of some of our most trusted companies 
       </p>
+
+
+
+
+<!--    ####################################################################   -->
+<style>
+.slider{
+
+  display: flex;
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: #fff;
+}
+.slider .card .img{
+  height: 200px;
+  width: 100%;
+}
+.slider .card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider .card .content{
+  padding: 10px 20px;
+}
+.card .content .title{
+  font-size: 25px;
+  font-weight: 600;
+}
+.card .content .sub-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: #e74c3c;
+  line-height: 20px;
+}
+.card .content p{
+  text-align: justify;
+  margin: 10px 0;
+}
+.card .content .btn{
+  display: block;
+  text-align: left;
+  margin: 10px 0;
+}
+.card .content .btn button{
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .content .btn button:hover{
+  transform: scale(0.9);
+}
+</style>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+          <div class="slider owl-carousel">
+      <div class="card">
+        <div class="img">
+<img src="images/logo.jpg" alt="Logo Design"></div>
+<div class="content">
+          <div class="title">
+Briana Tozour</div>
+<div class="sub-title">
+Graphic Designer</div>
+<p>
+Hire The Best Graphic Designers. Find the most talented graphic designers in Fiverr to bring your ideas to life. Looking for graphic design services? Browse Fiverr graphic designers
+<div class="btn">
+            <button>Read more</button>
+          </div>
+</div>
+</div>
+<div class="card">
+        <div class="img">
+<img src="images/web.jpg" alt=""></div>
+<div class="content">
+          <div class="title">
+Pricilla Preez</div>
+<div class="sub-title">
+Web Developer</div>
+<p>
+Web developers are professionals who build attractive and functional websites. A professional and user-friendly website reflects a business that is trustworthy
+<div class="btn">
+            <button>Read more</button>
+          </div>
+</div>
+</div>
+
+<div class="card">
+        <div class="img">
+<img src="images/app.jpeg" alt=""></div>
+<div class="content">
+          <div class="title">
+Eliana Maia</div>
+<div class="sub-title">
+App Developer</div>
+<p>
+Affordable freelance mobile Application development services. Hire an IOS developer or Android developer services and get your App project done within 24hr
+<div class="btn">
+            <button>Read more</button>
+          </div>
+</div>
+</div>
+
+<div class="card">
+        <div class="img">
+<img src="images/wordpress.jpg" alt=""></div>
+<div class="content">
+          <div class="title">
+Ehsan</div>
+<div class="sub-title">
+Wordpress Development</div>
+<p>
+Affordable Wordpress Support Services. Hire a Professional Wordpress Developer Freelance To Quickly build or Update Your Wordpress Website or Blog
+<div class="btn">
+            <button>Read more</button>
+          </div>
+</div>
+</div>
+
+
+        <div class="card">
+        <div class="img">
+<img src="images/voice.png" alt=""></div>
+<div class="content">
+          <div class="title">
+John</div>
+<div class="sub-title">
+Voice Over</div>
+<p>
+Voice over is a production technique where a voice that is not part of the narrative is heard over the action. It's often used in movies, TV shows, plays and other shows
+<div class="btn">
+            <button>Read more</button>
+          </div>
+</div>
+</div>
+    </div>
+
+
+<script>
+      $(".slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, //2000ms = 2s;
+        autoplayHoverPause: true,
+      });
+
+      function closeOverLay(){
+                document.getElementsByClassName("ppr")[0].style.display="none";
+            }
+            function rightScrolling(elem){
+                document.getElementById("list").scrollBy(3,0);
+            }
+            function leftScrolling(elem){
+                document.getElementById("list").scrollBy(-3,0);
+            }
+            function keepScrolling(elem, action) {
+                var timer;
+                var repeat = function () {
+                    action();
+                    timer = setTimeout(repeat, 1);
+                }
+                elem.onmousedown = function() {
+                    repeat();
+                }
+                elem.onmouseout = function(){
+                    clearTimeout(timer);
+                }
+                elem.onmouseup = function () {
+                    clearTimeout(timer);
+                }
+            };
+    </script>
+<!--      ##############################################                    -->
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
         Part of our work is to verify the companies that join us to ensure safety and friendly collaboration.
       </p>
