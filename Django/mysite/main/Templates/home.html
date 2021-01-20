@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- This example requires Tailwind CSS v2.0+ -->
+
 
 
 <div class="relative bg-white overflow-hidden">
@@ -9,17 +9,6 @@
       <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
-
-      <!--
-        Mobile menu, show/hide based on menu open state.
-
-        Entering: "duration-150 ease-out"
-          From: "opacity-0 scale-95"
-          To: "opacity-100 scale-100"
-        Leaving: "duration-100 ease-in"
-          From: "opacity-100 scale-100"
-          To: "opacity-0 scale-95"
-      -->
       <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
         <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div class="px-5 pt-4 flex items-center justify-between">
@@ -209,62 +198,61 @@
 
 <!--    ####################################################################   -->
 
-<style>
-.slider{
-
-  display: flex;
-}
-.slider .card{
-  flex: 1;
-  margin: 0 10px;
-  background: #fff;
-}
-.slider .card .img{
-  height: 200px;
-  width: 100%;
-}
-.slider .card .img img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.slider .card .content{
-  padding: 10px 20px;
-}
-.card .content .title{
-  font-size: 25px;
-  font-weight: 600;
-}
-.card .content .sub-title{
-  font-size: 20px;
-  font-weight: 600;
-  color: #38a169;
-  line-height: 20px;
-}
-.card .content p{
-  text-align: justify;
-  margin: 10px 0;
-}
-.card .content .btn{
-  display: block;
-  text-align: left;
-  margin: 10px 0;
-}
-.card .content .btn button{
-  background: #38a169;
-  color: #fff;
-  border: none;
-  outline: none;
-  font-size: 17px;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.card .content .btn button:hover{
-  transform: scale(0.9);
-}
-</style>
+<!--<style>-->
+<!--.slider{-->
+<!--  display: flex;-->
+<!--}-->
+<!--.slider .card{-->
+<!--  flex: 1;-->
+<!--  margin: 0 10px;-->
+<!--  background: #fff;-->
+<!--}-->
+<!--.slider .card .img{-->
+<!--  height: 200px;-->
+<!--  width: 100%;-->
+<!--}-->
+<!--.slider .card .img img{-->
+<!--  height: 100%;-->
+<!--  width: 100%;-->
+<!--  object-fit: cover;-->
+<!--}-->
+<!--.slider .card .content{-->
+<!--  padding: 10px 20px;-->
+<!--}-->
+<!--.card .content .title{-->
+<!--  font-size: 25px;-->
+<!--  font-weight: 600;-->
+<!--}-->
+<!--.card .content .sub-title{-->
+<!--  font-size: 20px;-->
+<!--  font-weight: 600;-->
+<!--  color: #38a169;-->
+<!--  line-height: 20px;-->
+<!--}-->
+<!--.card .content p{-->
+<!--  text-align: justify;-->
+<!--  margin: 10px 0;-->
+<!--}-->
+<!--.card .content .btn{-->
+<!--  display: block;-->
+<!--  text-align: left;-->
+<!--  margin: 10px 0;-->
+<!--}-->
+<!--.card .content .btn button{-->
+<!--  background: #38a169;-->
+<!--  color: #fff;-->
+<!--  border: none;-->
+<!--  outline: none;-->
+<!--  font-size: 17px;-->
+<!--  padding: 5px 8px;-->
+<!--  border-radius: 5px;-->
+<!--  cursor: pointer;-->
+<!--  transition: 0.2s;-->
+<!--}-->
+<!--.card .content .btn button:hover{-->
+<!--  transform: scale(0.9);-->
+<!--}-->
+<!--</style>-->
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -422,24 +410,6 @@
         Displayed above are our promoters of the week
       </p>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 <div class="py-12 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -449,63 +419,10 @@
         A collection of some of our most trusted companies 
       </p>
       <div class="container pt-5">
-        
-<style>
-.slider2{
 
-  display: flex;
-}
-.slider2 .card2{
-  flex: 1;
-  margin: 0 10px;
-  background: #fff;
-}
-.slider2 .card2 .img2{
-  height: 200px;
-  width: 100%;
-}
-.slider2 .card2 .img2 img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.slider2 .card2 .content2{
-  padding: 10px 20px;
-}
-.card2 .content2 .title2{
-  font-size: 25px;
-  font-weight: 600;
-}
-.card2 .content2 .sub-title2{
-  font-size: 20px;
-  font-weight: 600;
-  color: #38a169;
-  line-height: 20px;
-}
-.card2 .content2 p{
-  text-align: justify;
-  margin: 10px 0;
-}
-.card2 .content2 .btn2{
-  display: block;
-  text-align: left;
-  margin: 10px 0;
-}
-.card2 .content2 .btn2 button{
-  background: #38a169;
-  color: #fff;
-  border: none;
-  outline: none;
-  font-size: 17px;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.card2 .content2 .btn2 button:hover{
-  transform: scale(0.9);
-}
-</style>
+      {% load static%}
+      <link rel="stylesheet" type="text/css" href="{% static 'carousel.css'%}">
+      <script src="{% static 'carousel.js' %}"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -620,45 +537,8 @@
         </div>
     </div>
 </div>
+<!--<script src="{% static 'carousel.js' %}"></script>-->
 
-
-<script>
-      $(".slider2").owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 1000, //2000ms = 2s;
-        autoplayHoverPause: true,
-      });
-
-      function closeOverLay(){
-                document.getElementsByClassName("ppr")[0].style.display="none";
-            }
-            function rightScrolling(elem){
-                document.getElementById("list").scrollBy(3,0);
-            }
-            function leftScrolling(elem){
-                document.getElementById("list").scrollBy(-3,0);
-            }
-            function keepScrolling(elem, action) {
-                var timer;
-                var repeat = function () {
-                    action();
-                    timer = setTimeout(repeat, 1);
-                }
-                elem.onmousedown = function() {
-                    repeat();
-                }
-                elem.onmouseout = function(){
-                    clearTimeout(timer);
-                }
-                elem.onmouseup = function () {
-                    clearTimeout(timer);
-                }
-            };
-    </script>
-<!--      ##############################################                    -->
-
-      
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
         Part of our work is to verify the companies that join us to ensure safety and friendly collaboration.
       </p>
