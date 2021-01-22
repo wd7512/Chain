@@ -25,13 +25,13 @@ body {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   }
-  
+
 
 .contactFooter {
   font-family: 'Helvetica';
   color: black;
 }
-  
+
 .quoteImage {
   position: relative;
   text-align: center;
@@ -66,7 +66,7 @@ body {
 <title>Chain</title>
 </head>
 <body>
-  
+
 <!--<div class="topnav">-->
 <!--  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">-->
 <!--  <a href="/Explore">Explore</a>-->
@@ -83,21 +83,23 @@ body {
     <div class="collapse navbar-collapse pt-2 pb-2" style="font-size:16px" id="navbarTogglerDemo01">
       <a class="navbar-brand " href="/">Chain</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
+
+
+        {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" href="/account">My Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=href="https://www.instagram.com/">Instagram</a>
+          <a class="nav-link active" href="/logout">Logout</a>
         </li>
+        {% else %}
         <li class="nav-item">
           <a class="nav-link active" href="/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/register">Sign Up</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/promoters/testpage">My Profile</a>
-        </li>
+        {% endif %}
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -117,8 +119,8 @@ body {
 </body>
 <footer>
 <div class="contactFooter">
-  
-  
+
+
   <center>
     <p>
       &nbsp;
@@ -126,7 +128,7 @@ body {
     <p>
       &nbsp;
     </p>
-      <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Contact Us</h2>   
+      <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Contact Us</h2>
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
         Feel free to provide feedback on our services or tell us how we can improve
       </p>
@@ -136,14 +138,14 @@ body {
       <p class="mt-4 max-w-2xl text-xl font-semibold text-green-600 lg:mx-auto">
         Instagram - @chain.ai
       </p>
-      
+
     <p>
       &nbsp;
     </p>
     <p>
       &nbsp;
     </p>
-    
+
   </center>
 </div>
 </footer>
