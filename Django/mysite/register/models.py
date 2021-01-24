@@ -31,7 +31,7 @@ class MyAccountManager(BaseUserManager):
 		return user
 
 
-class Account(AbstractBaseUser):
+class Account(AbstractBaseUser): # user is an instance of this class call user.#####
   options = [('P','Promoter'), ('C','Company')]
         
   email = models.EmailField(verbose_name="email", max_length=60, unique=True)
@@ -39,6 +39,7 @@ class Account(AbstractBaseUser):
   date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
   last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
   verified = models.BooleanField(default = False)
+  init_form_complete = models.BooleanField(default = False)
   type_client = models.CharField(max_length = 1,choices = options)
   is_admin = models.BooleanField(default=False)
   is_active = models.BooleanField(default=True)

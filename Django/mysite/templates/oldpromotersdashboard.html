@@ -1,0 +1,280 @@
+<script>
+    $(document).ready(function(){
+    var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue','','','','','','', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: 'TestValues',
+            data: [12, 19, 3,27,13,5,5,5,50, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    });
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="{%static 'sidebar.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'analytics1.css'%}">
+
+
+<div class="container pb-2 pt-2" >
+	<ul class="nav nav-pills">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-3">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Analytics</a>
+					</li>
+				</div>
+				<div class="col-3">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Profile</a>
+					</li>
+				</div>
+				<div class="col-2">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Messages</a>
+					</li>
+				</div>
+				<div class="col-2">
+					<li class="nav-item">
+						<a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Business</a>
+					</li>
+				</div>
+				<div class="col-2">
+					<li class="nav-item">
+						<a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Business</a>
+					</li>
+				</div>
+			</div>
+		</div>
+	</ul>
+</div>
+<!---->
+<!---->
+
+<div class="row " >
+
+	<div class="col-2">
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div class="md:flex flex-col md:flex-row md:min-h-screen w-full fixed">
+  <div @click.away="open = false" class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
+    <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
+      <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Flowtrail UI</a>
+      <button class="rounded-lg md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Portfolio</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+      <div @click.away="open = false" class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <span>Dropdown</span>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
+          <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #1</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #2</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+	</div>
+
+
+	<div class="col" >
+		<div class="header bg-gradient-primary pb-8 pt-5">
+			<div class="container">
+				<div class="header-body">
+					<!--    CARD ONE   -->
+					<div class="row">
+						<div class="col">
+							<div class="card card-stats mb-4 mb-xl-0">
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">Like Number</h5>
+											<span class="h2 font-weight-bold mb-0">350,897</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+												<i class="fas fa-chart-bar"></i>
+											</div>
+										</div>
+									</div>
+									<p class="mt-3 mb-0 text-muted text-sm">
+										<span class="text-success mr-2">
+											<i class="fa fa-arrow-up"></i> 3.48%
+
+										</span>
+										<span class="text-nowrap">Since last month</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--    CARD TWO   -->
+						<div class="col">
+							<div class="card card-stats mb-4 mb-xl-0">
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">New followers</h5>
+											<span class="h2 font-weight-bold mb-0">2,356</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+									</div>
+									<p class="mt-3 mb-0 text-muted text-sm">
+										<span class="text-danger mr-2">
+											<i class="fas fa-arrow-down"></i> 3.48%
+
+										</span>
+										<span class="text-nowrap">Since last week</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--    CARD THREE-->
+						<div class="col">
+							<div class="card card-stats mb-4 mb-xl-0">
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+											<span class="h2 font-weight-bold mb-0">924</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+												<i class="fas fa-users"></i>
+											</div>
+										</div>
+									</div>
+									<p class="mt-3 mb-0 text-muted text-sm">
+										<span class="text-warning mr-2">
+											<i class="fas fa-arrow-down"></i> 1.10%
+
+										</span>
+										<span class="text-nowrap">Since yesterday</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card card-stats mb-4 mb-xl-0">
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">Audience</h5>
+											<span class="h2 font-weight-bold mb-0">924</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+												<i class="fas fa-users"></i>
+											</div>
+										</div>
+									</div>
+									<p class="mt-3 mb-0 text-muted text-sm">
+										<span class="text-warning mr-2">
+											<i class="fas fa-arrow-down"></i> 1.10%
+
+										</span>
+										<span class="text-nowrap">Since yesterday</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="container-fluid" style="background-color:black">
+								<div class="p-3 w-25">
+									<canvas id="myChart" width="200" height="200"></canvas>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 bg-dark"></div>
+					</div>
+
+
+
+					<!--                  NEW ROW-->
+					<div class="row pt-4">
+                        <div class="col-md-4 bg-dark ">
+                            <div class="container-fluid p-3">
+                                <div class="card " style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 bg-danger ">
+                            <div class="container-fluid p-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+						</div>
+                    </div>
+                </div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+

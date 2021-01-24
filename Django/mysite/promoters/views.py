@@ -6,6 +6,9 @@ from django.utils import timezone
 
 # Create your views here.
 def signupform(request):
+  if request.user.init_form_complete == 1 : #if form is complete, never go back, otherwise we keep making copies for the same user
+      return redirect('/promoters/dashboard/')
+
   form = init_form(request.POST or None)
   if form.is_valid():
     username = form.cleaned_data.get("username")
@@ -14,26 +17,23 @@ def signupform(request):
     birthday = form.cleaned_data.get("birthday")
     submission_date = timezone.now()
     followers = form.cleaned_data.get("followers")
-
     dataline = user_form(username=username,
                 instagram_id = insta_id,
                 submission_date = submission_date,
                 sex = sex,
                 birthday = birthday,
                 followers = followers)
+    request.user.init_form_complete = 1
+    request.user.save()
     dataline.save()
     return redirect('/promoters/dashboard/')
-
   return render(request, "plain_form.html", {"form": form})
 
 def dashboard(request):
-  return render(request,"promoters/dashboard.html")
+    if request.user.init_form_complete == 1 : #form complete
+        return render(request,"dashboard.html")
+    return redirect('promoters/signupform')
 
 def navbar(request):
   return render(request,"navbar.html")
 
-def test(request):
-    return render(request,"dashboard.html")
-
-def diogo(request):
-    return render(request,"diogo.html")

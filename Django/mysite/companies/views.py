@@ -6,6 +6,7 @@ from django.utils import timezone
 
 # Create your views here.
 def signupform(request):
+  print('Reached 0')
   form = init_form(request.POST or None)
   if form.is_valid():
     username = form.cleaned_data.get("username")
@@ -17,11 +18,10 @@ def signupform(request):
                 submission_date = submission_date,
                 )
     dataline.save()
+    print('Reached 1')
     return redirect('/companies/dashboard/')
-    
-    
-    
+
   return render(request, "plain_form.html", {"form": form})
 
 def dashboard(request):
-  return render(request,"companies/dashboard.html")
+  return render(request,"dashboard.html")

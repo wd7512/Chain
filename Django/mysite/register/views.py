@@ -5,6 +5,7 @@ from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateFor
 
 
 
+
 def registration_view(request):
 	context = {}
 	if request.POST:
@@ -18,11 +19,15 @@ def registration_view(request):
 			print(type_client)
 			account = authenticate(email=email, password=raw_password)
 			login(request, account)
-			return redirect('home')
+			#return redirect('home')
+			if type_client == 'P':
+				return redirect('/promoters/signupform')
+			if type_client == 'C':
+				return redirect("profile_comp")
 		else:
-                        print('invalid')
-                        print(form.cleaned_data.get('type_client'))
-                        context['registration_form'] = form
+			print('invalid')
+			print(form.cleaned_data.get('type_client'))
+			context['registration_form'] = form
 
 	else:
 		form = RegistrationForm()
@@ -40,7 +45,8 @@ def login_view(request):
 	context = {}
 
 	user = request.user
-	if user.is_authenticated: 
+
+	if user.is_authenticated:
 		return redirect("home")
 
 	if request.POST:
@@ -52,8 +58,10 @@ def login_view(request):
 
 			if user:
 				login(request, user)
-				return redirect("home")
-
+				if user.type_client == 'P':
+					return redirect('/promoters/dashboard')
+				if user.type_client == 'C':
+					return redirect('/companies/signupform')
 	else:
 		form = AccountAuthenticationForm()
 

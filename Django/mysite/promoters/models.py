@@ -5,7 +5,6 @@ from django.db import models
 class user_form(models.Model):
 
     sex_choices = [('M','Male'),('F','Female'),('O','Other')]
-
     
     username = models.CharField(max_length = 100)
     instagram_id = models.CharField(max_length = 100)

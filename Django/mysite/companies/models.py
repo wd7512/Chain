@@ -4,8 +4,6 @@ from django.db import models
 
 class company_form(models.Model):
 
-
-    
     username = models.CharField(max_length = 100)
     company_name = models.CharField(max_length = 100)
     submission_date = models.DateTimeField(default=None)
