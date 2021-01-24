@@ -59,7 +59,7 @@ def login_view(request):
 			if user:
 				login(request, user)
 				if user.type_client == 'P':
-					return redirect('/promoters/dashboard')
+					return redirect('/promoters/dashboard') #/promoters/dashboard is right, use /signup form for testing
 				if user.type_client == 'C':
 					return redirect('/companies/signupform')
 	else:
