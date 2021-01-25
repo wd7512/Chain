@@ -5,11 +5,18 @@ SEX_CHOICES = [('M','Male'),('F','Female'),('O','Other')]
 
 
 class init_form(forms.Form):
-  # email = forms.CharField()
-  company_name = forms.CharField()
-  company_size = forms.IntegerField()
-  company_business_area = forms.CharField()
-  company_instagram_id = forms.CharField()
+  company_name = forms.CharField(label='Company Name',
+                                 max_length=20,
+                                 widget=forms.TextInput(attrs={'placeholder': 'Company Name',
+                                                               'class': 'form-control',
+                                                               }))
+  company_size = forms.IntegerField(label='Number of Employees:',
+                                    widget=forms.NumberInput(attrs={'placeholder': 'Number of Employees',
+                                                                    'class': 'form-control'}))
+  company_business_area = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Business Area',
+                                                                        'class': 'form-control'}))
+  company_instagram_id = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Instagram Id',
+                                                                       'class': 'form-control'}))
 
 
 

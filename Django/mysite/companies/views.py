@@ -7,8 +7,8 @@ from django.utils import timezone
 
 # Create your views here.
 def signupform(request):
-    if request.user.init_form_complete == 1 : #if form is complete, never go back, otherwise we keep making copies for the same user
-        return redirect('/companies/dashboard/')
+    # if request.user.init_form_complete == 1 : #if form is complete, never go back, otherwise we keep making copies for the same user
+    #     return redirect('/companies/dashboard/')
     form = init_form(request.POST or None)
     if form.is_valid():
         email = request.user.email
@@ -17,7 +17,6 @@ def signupform(request):
         company_business_area = form.cleaned_data.get("company_business_area")
         company_instagram_id = form.cleaned_data.get("company_instagram_id")
         submission_date = timezone.now()
-
         dataline = company_form(email=email,
                                 company_name=company_name,
                                 company_size=company_size,

@@ -67,22 +67,16 @@ body {
 </head>
 <body>
 
-<!--<div class="topnav">-->
-<!--  <img src="https://lh3.googleusercontent.com/proxy/LUBSaCelKldY6pCTPALo2__MsYbGacXd6Ndwd95yUvVc0EvKrw8OGr-3JF330i-ZHvnffAM54sZuimlLdKDoleGz_1y-LyoHZOeWQ0XGqaKWIv879rgdMQ"/ style="width:60px;height:50px;">-->
-<!--  <a href="/Explore">Explore</a>-->
-<!--  <a href="/login">Login</a>-->
-<!--  <a href="/register">SignUp</a>-->
-<!--  <a href="https://www.instagram.com/">Instagram</a>-->
-<!--  <a href="/MyProfile">My Profile</a>-->
-<!--  <a class="active" href="/">Home</a>-->
-<!--</div>-->
-
 <div class="sticky-top">
 <nav class="navbar navbar-expand-lg navbar-light p-2 bg-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse pt-2 pb-2" style="font-size:16px" id="navbarTogglerDemo01">
       {% if request.user.is_authenticated %}
+      {% if request.user.type_client == P %}
       <a class="navbar-brand " href="/promoters/dashboard/">Dashboard</a>
+      {%else%}
+      <a class="navbar-brand " href="/promoters/dashboard/">Dashboard</a>
+      {%endif%}
       {% else %}
       <a class="navbar-brand " href="/">Chain</a>
       {% endif %}

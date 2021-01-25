@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
 
+
+
 def registration_view(request):
 	context = {}
 	if request.POST:
