@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<h1 class='text-center display-4 pt-6'>PromoterApp/templates/Dashboard</h1>
+<div class="container_fluid">
+<div class="row">
+	<div class="col text-center">
+		<h1>Your email is: </h1>{{email}}
+	</div>
+		<div class="col text-center">
+		<h1>Your insta id is: </h1>{{instagram_id}}
+	</div>
+		<div class="col text-center">
+		<h1>Your gender is: </h1>{{sex}}
+	</div>
+		<div class="col text-center">
+		<h1>Your birthday is: </h1>{{birthday}}
+	</div>
+		<div class="col text-center">
+		<h1>Your followers: </h1>{{followers}}
+	</div>
+</div>
+</div>
+{% endblock %}

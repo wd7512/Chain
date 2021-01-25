@@ -4,8 +4,6 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
 
-
-
 def registration_view(request):
 	context = {}
 	if request.POST:
@@ -21,9 +19,9 @@ def registration_view(request):
 			login(request, account)
 			#return redirect('home')
 			if type_client == 'P':
-				return redirect('/promoters/signupform')
+				return redirect('promoter_init_form')
 			if type_client == 'C':
-				return redirect("profile_comp")
+				return redirect("company_init_form")
 		else:
 			print('invalid')
 			print(form.cleaned_data.get('type_client'))
@@ -59,9 +57,9 @@ def login_view(request):
 			if user:
 				login(request, user)
 				if user.type_client == 'P':
-					return redirect('/promoters/dashboard') #/promoters/dashboard is right, use /signup form for testing
+					return redirect('promoter_dashboard') #/promoters/dashboard is right, use /signup form for testing
 				if user.type_client == 'C':
-					return redirect('/companies/signupform')
+					return redirect('company_dashboard')
 	else:
 		form = AccountAuthenticationForm()
 

@@ -5,7 +5,12 @@ SEX_CHOICES = [('M','Male'),('F','Female'),('O','Other')]
 
 
 class init_form(forms.Form):
-  username = forms.CharField()
+  # email = forms.CharField()
   company_name = forms.CharField()
+  company_size = forms.IntegerField()
+  company_business_area = forms.CharField()
+  company_instagram_id = forms.CharField()
+
+
 
 
