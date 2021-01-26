@@ -1,13 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-  .test{
-  font-size:20px;
-  color: green;
+<style type="text/css">
+
+    .form-group {
+    width: 100%;
+    max-width: 330px;
+    padding: 5px;
+    margin: auto;
+    }
+
+  .form-group .init_form{
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 5px;
+    font-size: 16px;
   }
-  .top {
-  font-size:25px;
-  font-family:helvetica}
+  .form-group .init_form:focus {
+    z-index: 2;
+  }
+  .form-group input[type=""] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-group input[type=""] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
 
 </style>
 
@@ -15,9 +37,23 @@
 <div class = "form_container">
   <div class="container w-25">
   <div class="row">
-    <div class="col-sm center-block">
       <div class="top p-6">
-        <h1>Before we start, tell us more about you</h1>
+        
+  <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
+        Chain
+  </p>
+
+  <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-green-600 sm:text-4xl text-center">
+        'Taking influencer marketing to the next level'
+  </p>
+
+    <p>
+      &nbsp;
+    </p>
+
+        
+        <h1 class="text-base text-green-600 font-semibold tracking-wide uppercase text-center">Before we start, tell us a bit more about you</h1>
+      
       </div>
         <div class="form-group">
           <form method="POST" class="form-group">
@@ -29,7 +65,9 @@
             {%endif%}
             {{form}}
             <div class="pt-6">
-            <button type="submit" class="btn btn-success">Add Details</button>
+              
+            <button class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10"type="submit" >Add Details</button>
+            
             </div>
           </form>
         </div>
@@ -38,3 +76,4 @@
     </div>
 </div>
 {% endblock %}
+
