@@ -1,4 +1,7 @@
 from django import forms
+from django.forms import ModelForm
+from .models import Order
+
 
 BIRTH_YEAR_CHOICES = list(range(1900, 2020 - 16))
 SEX_CHOICES = [('M', 'Male'), ('F', 'Female'), ('O', 'Other')]
@@ -19,3 +22,10 @@ class init_form(forms.Form):
     followers = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Follower Number',
                                                                    'class': 'form-control',
                                                                    }))
+
+
+
+class OrderForm(ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'
